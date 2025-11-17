@@ -215,10 +215,10 @@ window.addEventListener('load', function() {
         const mapContainer = document.getElementById('map');
         if (mapContainer) {
             mapContainer.innerHTML = `
-                <div style="height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; background:#f5f5f5; border-radius:10px;">
-                    <p style="font-size:3rem;">🗺️</p>
-                    <p style="color:#666; margin-top:1rem;">카카오맵 API 키를 설정해주세요</p>
-                    <p style="color:#999; font-size:0.9rem; margin-top:0.5rem;">index.html에서 YOUR_JAVASCRIPT_KEY_HERE를 실제 키로 변경</p>
+                <div style="height:100%; width:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; background:#f5f5f5; margin:0; padding:0;">
+                    <p style="font-size:3rem; margin:0;">🗺️</p>
+                    <p style="color:#666; margin:1rem 0 0 0;">카카오맵 API 키를 설정해주세요</p>
+                    <p style="color:#999; font-size:0.9rem; margin:0.5rem 0 0 0;">index.html에서 YOUR_JAVASCRIPT_KEY_HERE를 실제 키로 변경</p>
                 </div>
             `;
         }

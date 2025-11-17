@@ -151,41 +151,55 @@ function initKakaoMap() {
         return;
     }
 
-    // 자비정사 위치 (서울특별시 강북구 삼각산로 5)
-    // 실제 좌표를 확인하여 수정하세요
+    // 자비정사 주소
+    const address = '서울특별시 강북구 삼각산로 5';
+
+    // 지도 기본 옵션 (초기 중심은 서울시청)
     const mapOption = {
-        center: new kakao.maps.LatLng(37.6565, 127.0135), // 임시 좌표 - 실제 좌표로 변경 필요
-        level: 3 // 지도 확대 레벨
+        center: new kakao.maps.LatLng(37.5665, 126.9780),
+        level: 3
     };
 
     // 지도 생성
     const map = new kakao.maps.Map(mapContainer, mapOption);
 
-    // 마커 생성
-    const markerPosition = new kakao.maps.LatLng(37.6565, 127.0135); // 임시 좌표
-    const marker = new kakao.maps.Marker({
-        position: markerPosition,
-        map: map
-    });
+    // 주소-좌표 변환 객체 생성
+    const geocoder = new kakao.maps.services.Geocoder();
 
-    // 인포윈도우 생성
-    const infowindow = new kakao.maps.InfoWindow({
-        content: '<div style="padding:10px;font-size:14px;font-weight:bold;color:#8B4513;">자비정사</div>'
-    });
+    // 주소로 좌표를 검색
+    geocoder.addressSearch(address, function(result, status) {
+        // 정상적으로 검색이 완료됐으면
+        if (status === kakao.maps.services.Status.OK) {
+            const coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 
-    // 마커에 마우스오버 이벤트 등록
-    kakao.maps.event.addListener(marker, 'mouseover', function() {
-        infowindow.open(map, marker);
-    });
+            // 결과값으로 받은 위치를 마커로 표시
+            const marker = new kakao.maps.Marker({
+                map: map,
+                position: coords
+            });
 
-    // 마커에 마우스아웃 이벤트 등록
-    kakao.maps.event.addListener(marker, 'mouseout', function() {
-        infowindow.close();
-    });
+            // 인포윈도우로 장소에 대한 설명을 표시
+            const infowindow = new kakao.maps.InfoWindow({
+                content: '<div style="padding:10px 15px;font-size:14px;font-weight:bold;color:#8B4513;text-align:center;">자비정사<br/><small style="font-weight:normal;color:#666;">서울특별시 강북구 삼각산로 5</small></div>'
+            });
 
-    // 마커 클릭시 카카오맵 앱/웹으로 길찾기
-    kakao.maps.event.addListener(marker, 'click', function() {
-        window.open('https://map.kakao.com/link/map/자비정사,37.6565,127.0135');
+            // 인포윈도우를 마커 위에 표시
+            infowindow.open(map, marker);
+
+            // 지도의 중심을 결과값으로 받은 위치로 이동
+            map.setCenter(coords);
+
+            // 마커 클릭시 카카오맵 앱/웹으로 길찾기
+            kakao.maps.event.addListener(marker, 'click', function() {
+                window.open('https://map.kakao.com/link/map/자비정사,' + result[0].y + ',' + result[0].x);
+            });
+
+            // 콘솔에 좌표 출력 (참고용)
+            console.log('자비정사 좌표:', '위도(lat):', result[0].y, '경도(lng):', result[0].x);
+        } else {
+            console.error('주소 검색 실패:', status);
+            alert('주소를 찾을 수 없습니다. 주소를 확인해주세요.');
+        }
     });
 }
 

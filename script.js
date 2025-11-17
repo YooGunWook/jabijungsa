@@ -136,3 +136,78 @@ if (history.scrollRestoration) {
 }
 window.scrollTo(0, 0);
 
+// 카카오맵 초기화
+function initKakaoMap() {
+    // 카카오맵 API가 로드되었는지 확인
+    if (typeof kakao === 'undefined') {
+        console.error('카카오맵 API가 로드되지 않았습니다. API 키를 확인해주세요.');
+        return;
+    }
+
+    const mapContainer = document.getElementById('map');
+    
+    // 지도가 표시될 div가 없으면 종료
+    if (!mapContainer) {
+        return;
+    }
+
+    // 자비정사 위치 (서울특별시 강북구 삼각산로 5)
+    // 실제 좌표를 확인하여 수정하세요
+    const mapOption = {
+        center: new kakao.maps.LatLng(37.6565, 127.0135), // 임시 좌표 - 실제 좌표로 변경 필요
+        level: 3 // 지도 확대 레벨
+    };
+
+    // 지도 생성
+    const map = new kakao.maps.Map(mapContainer, mapOption);
+
+    // 마커 생성
+    const markerPosition = new kakao.maps.LatLng(37.6565, 127.0135); // 임시 좌표
+    const marker = new kakao.maps.Marker({
+        position: markerPosition,
+        map: map
+    });
+
+    // 인포윈도우 생성
+    const infowindow = new kakao.maps.InfoWindow({
+        content: '<div style="padding:10px;font-size:14px;font-weight:bold;color:#8B4513;">자비정사</div>'
+    });
+
+    // 마커에 마우스오버 이벤트 등록
+    kakao.maps.event.addListener(marker, 'mouseover', function() {
+        infowindow.open(map, marker);
+    });
+
+    // 마커에 마우스아웃 이벤트 등록
+    kakao.maps.event.addListener(marker, 'mouseout', function() {
+        infowindow.close();
+    });
+
+    // 마커 클릭시 카카오맵 앱/웹으로 길찾기
+    kakao.maps.event.addListener(marker, 'click', function() {
+        window.open('https://map.kakao.com/link/map/자비정사,37.6565,127.0135');
+    });
+}
+
+// 페이지 로드 완료 후 지도 초기화
+window.addEventListener('load', function() {
+    // 카카오맵 API 로드를 기다림
+    if (typeof kakao !== 'undefined' && kakao.maps) {
+        kakao.maps.load(function() {
+            initKakaoMap();
+        });
+    } else {
+        // API 키가 없을 때 임시 메시지 표시
+        const mapContainer = document.getElementById('map');
+        if (mapContainer) {
+            mapContainer.innerHTML = `
+                <div style="height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; background:#f5f5f5; border-radius:10px;">
+                    <p style="font-size:3rem;">🗺️</p>
+                    <p style="color:#666; margin-top:1rem;">카카오맵 API 키를 설정해주세요</p>
+                    <p style="color:#999; font-size:0.9rem; margin-top:0.5rem;">index.html에서 YOUR_JAVASCRIPT_KEY_HERE를 실제 키로 변경</p>
+                </div>
+            `;
+        }
+    }
+});
+

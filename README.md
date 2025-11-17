@@ -83,19 +83,17 @@ webpage_test/
 <img src="images/temple-main.jpg" alt="자비정사 전경">
 ```
 
-### 4. 지도 추가
+### 4. 카카오맵 설정
 
-오시는 길 섹션에 실제 지도를 추가하려면:
+웹사이트에 카카오맵이 이미 통합되어 있습니다! 
 
-#### 카카오맵 API 사용:
-1. [Kakao Developers](https://developers.kakao.com/)에서 앱 등록
-2. JavaScript 키 발급
-3. `index.html`에 API 스크립트 추가
+**설정 방법:**
+1. `KAKAO_MAP_GUIDE.md` 파일을 열어서 단계별 가이드를 따라하세요
+2. 카카오 개발자 사이트에서 API 키 발급
+3. `index.html`에서 `YOUR_JAVASCRIPT_KEY_HERE`를 실제 키로 변경
+4. `script.js`에서 실제 좌표로 변경
 
-#### 구글맵 임베드:
-1. [Google Maps](https://www.google.com/maps)에서 원하는 위치 검색
-2. "공유" > "지도 퍼가기" 클릭
-3. iframe 코드를 복사하여 `.location-map` 안에 삽입
+자세한 설정 방법은 **[KAKAO_MAP_GUIDE.md](./KAKAO_MAP_GUIDE.md)** 파일을 참고하세요!
 
 ## 📱 반응형 디자인
 

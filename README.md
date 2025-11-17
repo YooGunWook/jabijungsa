@@ -1,4 +1,4 @@
-# 대한사 - 불교 사찰 웹사이트
+# 자비정사 - 불교 사찰 웹사이트
 
 불교 절을 소개하는 정적 웹사이트입니다. GitHub Pages를 통해 호스팅할 수 있습니다.
 
@@ -50,7 +50,7 @@ webpage_test/
 
 `index.html` 파일을 열어서 다음 내용을 수정하세요:
 
-- 사찰 이름 (현재: "대한사")
+- 사찰 이름 (현재: "자비정사")
 - 주소 및 연락처
 - 법회 일정 및 프로그램 정보
 - 주지스님 인사말
@@ -76,11 +76,11 @@ webpage_test/
 <!-- 변경 전 -->
 <div class="image-placeholder">
     <p>📿</p>
-    <p>대한사 전경</p>
+    <p>자비정사 전경</p>
 </div>
 
 <!-- 변경 후 -->
-<img src="images/temple-main.jpg" alt="대한사 전경">
+<img src="images/temple-main.jpg" alt="자비정사 전경">
 ```
 
 ### 4. 지도 추가

@@ -228,3 +228,27 @@ window.addEventListener('load', function() {
     }
 });
 
+// 맨 위로 가기 버튼 기능
+const scrollToTopBtn = document.getElementById('scrollToTop');
+
+if (scrollToTopBtn) {
+    // 스크롤 시 버튼 표시/숨김 (100px 이상 스크롤하면 나타남)
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 100) {
+            scrollToTopBtn.classList.add('show');
+        } else {
+            scrollToTopBtn.classList.remove('show');
+        }
+    });
+
+    // 버튼 클릭 시 맨 위로 부드럽게 스크롤
+    scrollToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+} else {
+    console.error('맨 위로 가기 버튼을 찾을 수 없습니다.');
+}
+

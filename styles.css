@@ -49,10 +49,20 @@ body {
 }
 
 .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--primary-color);
     letter-spacing: 2px;
+}
+
+.nav-logo {
+    height: 35px;
+    width: auto;
+    object-fit: contain;
+    max-width: 35px;
 }
 
 .nav-menu {
@@ -437,6 +447,14 @@ section {
     margin-bottom: 2rem;
 }
 
+.footer-logo {
+    width: 40px;
+    height: auto;
+    margin-bottom: 1rem;
+    object-fit: contain;
+    max-height: 40px;
+}
+
 .footer-section h4 {
     font-size: 1.2rem;
     margin-bottom: 1rem;
@@ -481,6 +499,15 @@ section {
 
     .nav-menu li {
         margin: 1rem 0;
+    }
+
+    .nav-brand {
+        font-size: 1.3rem;
+    }
+
+    .nav-logo {
+        height: 30px;
+        max-width: 30px;
     }
 
     .hero-title {
@@ -528,6 +555,20 @@ section {
 }
 
 @media (max-width: 480px) {
+    .nav-brand {
+        font-size: 1.1rem;
+    }
+
+    .nav-logo {
+        height: 28px;
+        max-width: 28px;
+    }
+
+    .footer-logo {
+        width: 35px;
+        max-height: 35px;
+    }
+
     .hero-title {
         font-size: 2rem;
     }

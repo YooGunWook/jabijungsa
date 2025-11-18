@@ -181,7 +181,7 @@ function initKakaoMap() {
             // 인포윈도우로 장소에 대한 설명을 표시
             const infowindow = new kakao.maps.InfoWindow({
                 content: '<div style="padding:15px 20px;text-align:center;line-height:1.5;min-width:200px;">' +
-                         '<div style="font-size:16px;font-weight:bold;color:#8B4513;margin-bottom:8px;">자비정사</div>' +
+                         '<div style="font-size:16px;font-weight:bold;color:#4A5835;margin-bottom:8px;">자비정사</div>' +
                          '<div style="font-size:13px;font-weight:normal;color:#666;line-height:1.4;">서울특별시 강북구<br/>삼각산로 5</div>' +
                          '</div>'
             });

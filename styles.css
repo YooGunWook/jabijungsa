@@ -6,14 +6,14 @@
 }
 
 :root {
-    --primary-color: #8B4513;
-    --secondary-color: #D4AF37;
-    --dark-brown: #5C3317;
-    --light-beige: #F5F5DC;
+    --primary-color: #4A5835;
+    --secondary-color: #6B7C4D;
+    --dark-olive: #212011;
+    --light-beige: #F5F5E8;
     --white: #FFFFFF;
     --text-dark: #333333;
     --text-light: #666666;
-    --shadow: rgba(0, 0, 0, 0.1);
+    --shadow: rgba(74, 88, 53, 0.1);
 }
 
 body {
@@ -115,7 +115,7 @@ body {
 /* 히어로 섹션 */
 .hero {
     height: 100vh;
-    background: linear-gradient(135deg, #8B4513 0%, #D4AF37 100%);
+    background: linear-gradient(135deg, #4A5835 0%, #6B7C4D 100%);
     position: relative;
     display: flex;
     align-items: center;
@@ -279,7 +279,7 @@ section {
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
-    color: var(--dark-brown);
+    color: var(--dark-olive);
 }
 
 .greeting-text p {
@@ -317,7 +317,7 @@ section {
 
 .program-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(139, 69, 19, 0.2);
+    box-shadow: 0 10px 30px rgba(74, 88, 53, 0.2);
 }
 
 .program-icon {
@@ -435,7 +435,7 @@ section {
 
 /* 푸터 */
 .footer {
-    background: var(--dark-brown);
+    background: var(--primary-color);
     color: var(--white);
     padding: 3rem 0 1rem;
 }
@@ -458,7 +458,7 @@ section {
 .footer-section h4 {
     font-size: 1.2rem;
     margin-bottom: 1rem;
-    color: var(--secondary-color);
+    color: #D4C5A0;
 }
 
 .footer-section p {
@@ -601,13 +601,13 @@ section {
     right: 30px;
     width: 50px;
     height: 50px;
-    background: var(--primary-color);
+    background: var(--dark-olive);
     color: var(--white);
     border: none;
     border-radius: 50%;
     font-size: 24px;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+    box-shadow: 0 4px 15px rgba(33, 32, 17, 0.5);
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
@@ -620,9 +620,9 @@ section {
 }
 
 .scroll-to-top:hover {
-    background: var(--dark-brown);
+    background: #353425;
     transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(139, 69, 19, 0.4);
+    box-shadow: 0 6px 20px rgba(33, 32, 17, 0.7);
 }
 
 .scroll-to-top:active {
